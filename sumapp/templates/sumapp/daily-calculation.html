@@ -1,0 +1,27 @@
+{% extends 'sumapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<button> <a href="{% url 'sum/sumapp:logout'%}"> WYLOGUJ </a> </button>
+
+
+    <button> <a href="{% url 'sum/sumapp:raport' user.id %}">Raport dochodów i wydatków</a> </button>
+
+    <button><a href="{% url 'sum/sumapp:pdf' user.id%}"> Raport - Wersja PDF </a></button>
+
+    <button><a href="{% url 'sum/sumapp:mail' user.id%}"> Wyślij raport mailem </a></button>
+
+ <button> <a href="{% url 'sum/sumapp:modify-raport' user.id %}"> Modyfikacja i usuwanie wpisów </a> </button>
+
+<form method="post">
+     {% csrf_token %}
+     <p> Marzenie: "{{dream}}"</p>
+     <p>Koszt: {{price}}</p>
+      <p>W tym miesiącu poza stałymi opłatami możesz wydać maksymalnie: {{unregular_expanse}}</p>
+     <p> Szacowane miesięczne oszczędności: {{savings}}</p>
+
+    {{ form.as_p }}
+    <input type="submit" value="zapisz">
+
+</form>
+
+{% endblock %}

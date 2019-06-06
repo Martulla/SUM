@@ -1,0 +1,34 @@
+{% extends 'sumapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<button> <a href="{% url 'sum/sumapp:logout'%}"> WYLOGUJ </a> </button>
+
+<form method="post">
+     {% csrf_token %}
+
+    <p> Raport miesięczny dla: {{user}}</p>
+
+    <p> Miesięczny stały dochód: {{monthly_income}}</p>
+
+    <p> Miesięczne stałe wydatki: {{monthly_steady_expense}}</p>
+
+    <p> Zadeklarowane nieregularne miesięczne wydatki: {{mothly_delerateted_expense}}</p>
+
+    <p> W ciągu ostatniego miesiąca faktycznie wydałeś: {{ all_unregular_expense }} </p>
+
+    <p> Udało ci się uzyskać dodatkowe dochody w wysokości: {{all_unxpected_income}}</p>
+
+    <p> Udało ci się zaoszczędzić: {{ new_savings }} </p>
+
+    <p> Twoje marzenie: "{{dream}}"</p>
+
+    <p> Koszt marzenia: {{price}}</p>
+
+    {{ form.as_p }}
+
+    <input type="submit" value="zarejestruj się">
+
+</form>
+
+{% endblock %}

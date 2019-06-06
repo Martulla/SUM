@@ -1,0 +1,26 @@
+{% extends 'sumapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<button> <a href="{% url 'sum/sumapp:logout'%}"> WYLOGUJ </a> </button>
+
+ <button><a href="{% url 'sum/sumapp:query-update' user.id%}"> Chcesz poprawić dane? </a> </button>
+<form method="post">
+     {% csrf_token %}
+
+    <p>Przy miesiącznych dochodach: {{income}}</p>
+    <p>Przy miesięcznych wydatkach: {{expense}}</p>
+    <p>Mozesz zrealizować swoje marzenie: {{dream}}</p>
+    <p>które kosztuje: {{price}} </p>
+    <p>za {{ realization}} (ilość miesięcy)  </p>
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Zaczynamy oszczędzanie?">
+
+</form>
+
+{% endblock %}
+
+
+

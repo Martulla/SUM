@@ -1,0 +1,12 @@
+
+{% extends 'sumapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content%}
+<form method="post">
+
+<button><a href="{% url 'sum/sumapp:daily-calculation' user.id %}"> Wróć </a></button>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="wyślij raport">
+</form>
+{% endblock%}}

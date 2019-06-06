@@ -1,0 +1,75 @@
+<html>
+    <head><meta charset=UTF-8"></head>
+    <body>
+{% load crispy_forms_tags %}
+
+
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<p> Raport dla: {{user}}</p>
+
+
+
+<p> Dochod miesieczny : {{mon_in}} </p>
+<p> Oplaty stale: {{mon_ex}}  </p>
+<p> Szacowane pozostale wydatki: {{un_ex}}</p>
+<p> Rzeczywiste pozostale wydatki: {{real_un_ex }} </p>
+<p> Dodatkowe dochody: {{ un_in }} </p>
+
+
+<table class="table table-striped">
+
+  <thead>
+
+    <tr>
+
+      <th scope="col"> Data wydatku </th>
+
+      <th scope="col"> Wydatek </th>
+
+      <th scope="col"> Cel wydatku </th>
+
+      <th scope="col"> Data dodatkowego dochodu </th>
+
+      <th scope="col"> Dodatkowy dochod </th>
+
+      <th scope="col"> Zrodlo dochodu </th>
+
+
+    </tr>
+
+  </thead>
+
+    {% for in_ex in income_expense %}
+
+        <tr>
+
+            <td>{{ in_ex.expense_date }}</td>
+
+            <td>{{ in_ex.additional_expense}}</td>
+
+            <td>{{ in_ex.expense_object }}</td>
+
+             <td>{{ in_ex.income_date }}</td>
+
+            <td>{{ in_ex.additional_income}}</td>
+
+            <td>{{ in_ex.source_income }}</td>
+
+
+        </tr>
+
+
+
+    {% endfor %}
+
+
+
+</p>
+</table>
+</body>
+</html>
+

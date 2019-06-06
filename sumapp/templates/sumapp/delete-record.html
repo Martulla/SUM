@@ -1,0 +1,20 @@
+{% extends 'sumapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<button> <a href="{% url 'sum/sumapp:logout'%}"> WYLOGUJ </a> </button>
+
+<form method="post">
+     {% csrf_token %}
+     <p> Wydatek: {{daily_expanse}}</p>
+     <p> Na co: {{ for_what }}</p>
+     <p> Kiedy: {{ date_expanse }}</p>
+     <p> Niespodziewany dochód: {{unxpected_income}}</p>
+     <p>Żródło dochodu: {{from_who}}</p>
+     <p> Kiedy: {{date_income}}</p>
+      {{ form.as_p }}
+    <input type="submit" value="Usuń">
+
+</form>
+<button> <a href="{% url 'sum/sumapp:modify-raport' user.id %}"> Wróć </a> </button>
+
+{% endblock %}
