@@ -21,5 +21,6 @@ urlpatterns = [
     path('modify_record/<int:id>',views.ModifyRecordView.as_view(), name = 'modify-record'),
     path('delete_record/<int:id>', views.DeleteRecordView.as_view(), name = "delete-record"),
     path('modify_raport/<int:id>', views.ModifyRaportView.as_view(), name = 'modify-raport'),
+    path('raport-category/<int:id>',views.CategoryRaportView.as_view(), name = 'raport-category')
 
 ]

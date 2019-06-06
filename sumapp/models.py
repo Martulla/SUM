@@ -44,6 +44,17 @@ class Dream(models.Model):
     def __str__(self):
         return self.dream
 
+CATEGORY = ((1, "inne"),
+            (2, "podróże"),
+            (3, "ubrania"),
+            (4, "rozrywaka"),
+            (5, "jedzenie"))
+class Category(models.Model):
+    name = models.IntegerField(choices=CATEGORY)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+
+    def __str__(self):
+        return self.name
 
 class IncomeExpense(models.Model):
     additional_income = models.DecimalField(max_digits=10, decimal_places=2, default=0)
@@ -53,6 +64,8 @@ class IncomeExpense(models.Model):
     source_income = models.CharField(max_length= 30)
     expense_object = models.CharField(max_length=30)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=None, related_name='category')
+
 
 
 class SteadyData(models.Model):
@@ -63,3 +76,7 @@ class SteadyData(models.Model):
     login_check = models.IntegerField()
     monthly_savings = models.DecimalField(max_digits=20,decimal_places= 2, default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+
+class LastLogin(models.Model):
+    last_login = models.DateTimeField(default=None)
+    user = models.ForeignKey(User,on_delete=models.CASCADE, default=None )

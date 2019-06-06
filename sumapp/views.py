@@ -10,7 +10,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.mail import send_mail
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
@@ -21,7 +21,8 @@ from .utils import render_to_pdf
 from django.views import View
 
 from sumapp.forms import QueryForm, DailyCalculationForm, MailForm, CalculationForm, ResumeForm, ReturnForm
-from sumapp.models import Dream, MonthlyIncome, MonthlyExpense, UnregularExpense, IncomeExpense, SteadyData, Category
+from sumapp.models import Dream, MonthlyIncome, MonthlyExpense, UnregularExpense, IncomeExpense, SteadyData, Category, \
+    LastLogin
 
 
 class StartPageView(View):
@@ -42,6 +43,9 @@ class LoginNewView(View):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
+                new_last_login = LastLogin.objects.get(user_id = user.id)
+                new_last_login.last_login = datetime.datetime.now()
+                new_last_login.save()
                 login_check_get = SteadyData.objects.get(user_id=user.id)
                 date = MonthlyIncome.objects.get(user_id=user.id)
                 last_income_date = date.income_date
@@ -74,6 +78,15 @@ class AddUserView(View):
             new_user = User.objects.get(username =user_name )
             if new_user:
                 login(request, new_user)
+                try:
+                    new_last_login = LastLogin.objects.get(user_id = new_user)
+                    if new_last_login:
+                        new_last_login.last_login = datetime.datetime.now()
+                        new_last_login.save()
+                except LastLogin.DoesNotExist:
+                        new_last_login = LastLogin(last_login = datetime.datetime.now(),
+                                                   user = new_user)
+                        new_last_login.save()
             return redirect('sum/sumapp:query', user_id = new_user.id)
         ctx = {'form': form}
         return render(request, 'sumapp/registration.html', ctx)
@@ -874,12 +887,14 @@ class SessionIdleTimeout:
     def process_request(self, request):
         if request.user.is_authenticated():
             current_datetime = datetime.datetime.now()
-            last_login = SteadyData.objects.get(uder_id = request.user.id)
+            last_login = LastLogin.objects.get(user_id = request.user.id)
             if last_login.last_login:
                 last = (current_datetime - last_login.last_login).seconds
-                if last > settings.SESSION_IDLE_TIMEOUT:
+                print(last)
+                if last > 60:
                     logout(request)
-                    return HttpResponse('sum/sumapp:index')
+                    print('test')
+                    return redirect('sum/sumapp:index')
 
 
 
@@ -888,7 +903,7 @@ class SessionIdleTimeout:
 class CategoryRaportView(View):
     def get(self, request, id):
         user = User.objects.get(id = id)
-        categories = Category.objects.filter(user_id = user.id).order_by('name')
+        categories = Category.objects.filter(user_id = user.id).order_by('name').distinct()
         # print(dir(result[0]))
         for category in categories:
             # print(category.name)

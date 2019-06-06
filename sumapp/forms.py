@@ -2,6 +2,7 @@ import datetime
 
 from django import forms
 
+from sumapp.models import CATEGORY
 
 
 class LoginForm(forms.Form):
@@ -24,10 +25,12 @@ class CalculationForm(forms.Form):
 class DailyCalculationForm(forms.Form):
     daily_expanse = forms.DecimalField(label='Wydatek', required=False)
     for_what = forms.CharField(label='Na co?', required=False)
+    category = forms.ChoiceField(label="Kategoria", choices=CATEGORY, required=False)
     date_expanse = forms.DateField(label= 'Kiedy?', initial=datetime.date.today)
     unxpected_income = forms.DecimalField(label='Niepospodziewany dochód', required=False)
     from_who = forms.CharField(label='Źródło dochodu', required=False)
     date_income = forms.DateField(label= 'Kiedy?', initial=datetime.date.today)
+
 
 
 class MailForm(forms.Form):
