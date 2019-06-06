@@ -21,7 +21,7 @@ from .utils import render_to_pdf
 from django.views import View
 
 from sumapp.forms import QueryForm, DailyCalculationForm, MailForm, CalculationForm, ResumeForm, ReturnForm
-from sumapp.models import Dream, MonthlyIncome, MonthlyExpense, UnregularExpense, IncomeExpense, SteadyData
+from sumapp.models import Dream, MonthlyIncome, MonthlyExpense, UnregularExpense, IncomeExpense, SteadyData, Category
 
 
 class StartPageView(View):
@@ -46,6 +46,7 @@ class LoginNewView(View):
                 date = MonthlyIncome.objects.get(user_id=user.id)
                 last_income_date = date.income_date
                 days = datetime.date.today() - last_income_date
+
                 if days >=  datetime.timedelta(days = 30):
                     url = reverse('sum/sumapp:resume', kwargs={'id': user.id})
                     return redirect(url)
@@ -55,6 +56,7 @@ class LoginNewView(View):
                     return redirect(url)
                 else:
                     return redirect('sum/sumapp:calculation', id = user.id)
+
         ctx = {'form':form}
         return render(request, 'sumapp/user.html', ctx)
 
@@ -119,7 +121,6 @@ class QueryView(LoginRequiredMixin, View):
                 except Dream.DoesNotExist:
                     new_dream = Dream(dream=dream_from_form,
                                       price=price_of_dream_from_form,
-
                                       user=user)
                     new_dream.save()
 
@@ -405,8 +406,11 @@ class DailyCalculation(LoginRequiredMixin, View):
             unxpected_income_form_form = form.cleaned_data['unxpected_income']
             from_who_monthly_form_form = form.cleaned_data['from_who']
             date_expanse_form_form = form.cleaned_data['date_expanse']
-
-
+            category_from_form = form.cleaned_data['category']
+            new_category = Category(name = category_from_form,
+                                    user = request.user)
+            new_category.save()
+            new_category_for_now_record = Category.objects.last()
 
             if daily_expanse_from_form and unxpected_income_form_form:
                 new_record = IncomeExpense(additional_income=unxpected_income_form_form,
@@ -416,6 +420,7 @@ class DailyCalculation(LoginRequiredMixin, View):
                                            source_income=from_who_monthly_form_form,
                                            expense_object=for_what_from_form,
                                            user=request.user,
+                                           category = new_category_for_now_record
                                             )
                 new_record.save()
             elif daily_expanse_from_form and unxpected_income_form_form == None:
@@ -426,7 +431,8 @@ class DailyCalculation(LoginRequiredMixin, View):
                                            expense_date=date_expanse_form_form,
                                            source_income=from_who_monthly_form_form,
                                            expense_object=for_what_from_form,
-                                           user=request.user
+                                           user=request.user,
+                                           category=new_category_for_now_record
                                            )
                 new_record.save()
 
@@ -439,6 +445,7 @@ class DailyCalculation(LoginRequiredMixin, View):
                                            source_income=from_who_monthly_form_form,
                                            expense_object=for_what_from_form,
                                            user=request.user,
+                                           category=new_category_for_now_record
                                            )
                 new_record.save()
 
@@ -867,15 +874,31 @@ class SessionIdleTimeout:
     def process_request(self, request):
         if request.user.is_authenticated():
             current_datetime = datetime.datetime.now()
-            if ('last_login' in request.session):
-                last = (current_datetime - request.session['last_login']).seconds
+            last_login = SteadyData.objects.get(uder_id = request.user.id)
+            if last_login.last_login:
+                last = (current_datetime - last_login.last_login).seconds
                 if last > settings.SESSION_IDLE_TIMEOUT:
                     logout(request)
                     return HttpResponse('sum/sumapp:index')
-            else:
-                request.session['last_login'] = current_datetime
-        return None
 
 
 
 
+
+class CategoryRaportView(View):
+    def get(self, request, id):
+        user = User.objects.get(id = id)
+        categories = Category.objects.filter(user_id = user.id).order_by('name')
+        # print(dir(result[0]))
+        for category in categories:
+            # print(category.name)
+            ex = IncomeExpense.objects.filter(category_id= category.id)
+            for e in ex:
+                print(e.category.name)
+                print(e.additional_expense)
+
+        ctx = {
+            "categories":ex,
+
+         }
+        return render(request, 'sumapp/raport-category.html', ctx)
