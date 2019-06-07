@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b79f008a-b78e-412e-b02a-8fa7f0127fa6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a6de31d7-b6f2-41f6-8700-ad23643e5f65.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a6de31d7-b6f2-41f6-8700-ad23643e5f65.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sumapp/templates/sumapp/raport-category.html" beforeDir="false" afterPath="$PROJECT_DIR$/sumapp/templates/sumapp/raport-category.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sumapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sumapp/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sumapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="17" />
+            <state relative-caret-position="15">
+              <caret line="13" column="73" lean-forward="true" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -66,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sumapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="80" column="44" lean-forward="true" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+            <state relative-caret-position="211">
+              <caret line="914" lean-forward="true" selection-start-line="914" selection-end-line="914" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -76,19 +80,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sum/sum/settings.py">
+        <entry file="file://$PROJECT_DIR$/sumapp/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="132" column="7" selection-start-line="132" selection-start-column="7" selection-end-line="132" selection-end-column="7" />
+            <state relative-caret-position="128">
+              <caret line="15" column="138" selection-start-line="15" selection-start-column="138" selection-end-line="15" selection-end-column="138" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/sumapp_category">
+        <entry file="file://$PROJECT_DIR$/sum/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="373">
+              <caret line="137" column="33" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/sumapp_incomeexpense">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="884fab50-92b7-4fcf-898a-8136369d5762">
-              <filtering />
+            <state projectRestartId="e00faeeb-bc60-4cab-9300-9735e9715dbf">
+              <filtering>
+                <filter text="" />
+              </filtering>
             </state>
           </provider>
         </entry>
@@ -96,17 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sumapp/templates/sumapp/raport-category.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sumapp/templates/sumapp/raport.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1110">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="178">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -114,7 +123,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sumapp/templates/sumapp/raport-pdf.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="210">
               <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
             </state>
           </provider>
@@ -171,14 +180,15 @@
         <option value="$PROJECT_DIR$/sumapp/templates/sumapp/category-raport.html" />
         <option value="$PROJECT_DIR$/sumapp/templates/sumapp/raport-via-category.html" />
         <option value="$PROJECT_DIR$/sum/sum/urls.py" />
-        <option value="$PROJECT_DIR$/sumapp/forms.py" />
         <option value="$PROJECT_DIR$/sumapp/templates/sumapp/daily-calculation.html" />
-        <option value="$PROJECT_DIR$/sumapp/models.py" />
         <option value="$PROJECT_DIR$/sum/sum/settings.py" />
         <option value="$PROJECT_DIR$/sumapp/urls.py" />
-        <option value="$PROJECT_DIR$/sumapp/templates/sumapp/raport-category.html" />
         <option value="$PROJECT_DIR$/sumapp/templates/sumapp/raport.html" />
         <option value="$PROJECT_DIR$/sumapp/templates/sumapp/raport-pdf.html" />
+        <option value="$PROJECT_DIR$/sum/settings.py" />
+        <option value="$PROJECT_DIR$/sumapp/forms.py" />
+        <option value="$PROJECT_DIR$/sumapp/models.py" />
+        <option value="$PROJECT_DIR$/sumapp/templates/sumapp/raport-category.html" />
         <option value="$PROJECT_DIR$/sumapp/views.py" />
       </list>
     </option>
@@ -195,6 +205,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -216,6 +227,12 @@
               <item name="SUM" type="b2602c69:ProjectViewProjectNode" />
               <item name="SUM" type="462c0819:PsiDirectoryNode" />
               <item name="sumapp" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SUM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SUM" type="462c0819:PsiDirectoryNode" />
+              <item name="sumapp" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -229,7 +246,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -297,7 +313,9 @@
       <workItem from="1559757429734" duration="6541000" />
       <workItem from="1559828700374" duration="20439000" />
       <workItem from="1559868230593" duration="653000" />
-      <workItem from="1559885474628" duration="536000" />
+      <workItem from="1559885474628" duration="924000" />
+      <workItem from="1559886484528" duration="478000" />
+      <workItem from="1559887035010" duration="2225000" />
     </task>
     <task id="LOCAL-00001" summary="zarys aplikacji">
       <created>1559851263793</created>
@@ -310,13 +328,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317424000" />
+    <option name="totallyTimeSpent" value="320515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.19863014" side_tool="true" weight="0.23505977" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.80136985" visible="true" weight="0.24223107" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.80136985" visible="true" weight="0.2501992" />
       <window_info id="Structure" order="2" sideWeight="0.5053305" side_tool="true" weight="0.2" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32935917" />
@@ -329,7 +347,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32935917" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5011952" side_tool="true" weight="0.43815202" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49880478" visible="true" weight="0.3393124" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49880478" visible="true" weight="0.4678625" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32935917" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3294893" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -382,22 +400,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/sumapp_dream">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="746559bd-5add-4a76-befe-19f5b103ac93">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/django/urls/resolvers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="587" selection-start-line="587" selection-end-line="587" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/django/views/generic/detail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -553,25 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sumapp/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/sumapp_incomeexpense">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="435dbdc3-7ec1-46bf-b114-a746cfdfae5d">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/django_session">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="435dbdc3-7ec1-46bf-b114-a746cfdfae5d">
@@ -590,15 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/sumapp_lastlogin">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="435dbdc3-7ec1-46bf-b114-a746cfdfae5d">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sum/sum/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1980">
@@ -606,17 +580,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/sumapp_category">
+    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/auth_user_groups">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="884fab50-92b7-4fcf-898a-8136369d5762">
+        <state projectRestartId="e00faeeb-bc60-4cab-9300-9735e9715dbf">
           <filtering />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sumapp/templates/sumapp/raport-category.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
@@ -624,6 +591,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1110">
           <caret line="74" selection-start-line="74" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sumapp/templates/sumapp/raport-pdf.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -644,36 +618,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sumapp/templates/sumapp/raport-pdf.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/auth_user">
+    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/sumapp_lastlogin">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="884fab50-92b7-4fcf-898a-8136369d5762">
+        <state projectRestartId="e00faeeb-bc60-4cab-9300-9735e9715dbf">
           <filtering>
             <filter text="" />
           </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sumapp/models.py">
+    <entry file="file://$PROJECT_DIR$/sumapp/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="17" />
+        <state relative-caret-position="128">
+          <caret line="15" column="138" selection-start-line="15" selection-start-column="138" selection-end-line="15" selection-end-column="138" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sumapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="13" column="73" lean-forward="true" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="e00faeeb-bc60-4cab-9300-9735e9715dbf">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/sumapp_incomeexpense">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="e00faeeb-bc60-4cab-9300-9735e9715dbf">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a6de31d7-b6f2-41f6-8700-ad23643e5f65/schema/main/table/sumapp_category">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="e00faeeb-bc60-4cab-9300-9735e9715dbf">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sum/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="137" column="33" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sumapp/templates/sumapp/raport-category.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sumapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="80" column="44" lean-forward="true" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+        <state relative-caret-position="211">
+          <caret line="914" lean-forward="true" selection-start-line="914" selection-end-line="914" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

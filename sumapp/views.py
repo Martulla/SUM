@@ -899,8 +899,14 @@ class CategoryRaportView(LoginRequiredMixin, View):
         user = User.objects.get(id = id)
         categories = Category.objects.order_by('name')
         expenses = IncomeExpense.objects.filter(user_id = user.id)
+
+        ubrania = 0
         for ex in expenses:
-            print(ex.category.name)
+            # print(ex.category.name)
+            if ex.category.name == 3:
+                ubrania += ex.additional_expense
+                print('coś', ex.additional_expense)
+                print(ubrania)
         ctx = {"user": user,
             "categories":expenses,
          }
