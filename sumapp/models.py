@@ -47,8 +47,18 @@ class Dream(models.Model):
 CATEGORY = ((1, "inne"),
             (2, "podróże"),
             (3, "ubrania"),
-            (4, "rozrywaka"),
-            (5, "jedzenie"))
+            (4, "rozrywka"),
+            (5, "jedzenie"),
+            (6, "elektronika"),
+            (7, "dzieci"),
+            (8, "zajęcia dodatkowe"),
+            (9, "hobby"),
+            (10, "dom"),
+            (11, "edukacja"),
+            (12, "samochód"),
+            (13, "zwierzęta"),
+            (14, "zdrowie"))
+
 class Category(models.Model):
     name = models.IntegerField(choices=CATEGORY)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
