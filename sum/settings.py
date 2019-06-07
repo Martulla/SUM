@@ -130,7 +130,7 @@ EMAIL_HOST_USER = 'sumraport@gmail.com'
 EMAIL_HOST_PASSWORD = 'Sumraport12345'
 EMAIL_USE_TLS = True
 
-TIME= 1*60
+TIME= 240*60
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 SESSION_EXPIRE_AT_BROWSER_CLOSE= True
 SESSION_COOKIE_AGE = TIME

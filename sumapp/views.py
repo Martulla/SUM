@@ -78,15 +78,9 @@ class AddUserView(View):
             new_user = User.objects.get(username =user_name )
             if new_user:
                 login(request, new_user)
-                try:
-                    new_last_login = LastLogin.objects.get(user_id = new_user)
-                    if new_last_login:
-                        new_last_login.last_login = datetime.datetime.now()
-                        new_last_login.save()
-                except LastLogin.DoesNotExist:
-                        new_last_login = LastLogin(last_login = datetime.datetime.now(),
-                                                   user = new_user)
-                        new_last_login.save()
+                new_last_login = LastLogin(last_login = datetime.datetime.now(),
+                                           user = new_user)
+                new_last_login.save()
             return redirect('sum/sumapp:query', user_id = new_user.id)
         ctx = {'form': form}
         return render(request, 'sumapp/registration.html', ctx)
