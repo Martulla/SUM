@@ -78,9 +78,10 @@ class AddUserView(View):
             new_user = User.objects.get(username =user_name )
             if new_user:
                 login(request, new_user)
-                new_last_login = LastLogin(last_login = datetime.datetime.now(),
-                                           user = new_user)
+                new_last_login = LastLogin(last_login=datetime.datetime.now(),
+                                           user=new_user)
                 new_last_login.save()
+
             return redirect('sum/sumapp:query', user_id = new_user.id)
         ctx = {'form': form}
         return render(request, 'sumapp/registration.html', ctx)
@@ -738,6 +739,7 @@ class ModifyRecordView(LoginRequiredMixin, View):
         form = DailyCalculationForm(initial={
                 'daily_expanse': in_ex. additional_expense,
                 'for_what': in_ex.expense_object,
+                'category' : in_ex.category.name,
                 'date_expanse': in_ex.expense_date,
                 'unxpected_income': in_ex.additional_income,
                 'from_who': in_ex.source_income,
@@ -752,14 +754,21 @@ class ModifyRecordView(LoginRequiredMixin, View):
             user = in_ex.user_id
             daily_expanse_from_form = form.cleaned_data['daily_expanse']
             for_what_from_form = form.cleaned_data['for_what']
+            category_from_form = form.cleaned_data['category']
             date_income_from_form = form.cleaned_data['date_income']
             unxpected_income_form_form = form.cleaned_data['unxpected_income']
             from_who_form_form = form.cleaned_data['from_who']
             date_expanse_form_form = form.cleaned_data['date_expanse']
+            new_category_for_now_record = Category.objects.get(id = id)
+            new_category_for_now_record.name = category_from_form
+            new_category_for_now_record.save()
+
+            new_category = Category.objects.get(id = id)
 
             in_ex.additional_income=unxpected_income_form_form
             in_ex.additional_expense=daily_expanse_from_form
             in_ex.income_date=date_income_from_form
+            in_ex.category = new_category
             in_ex.expense_date=date_expanse_form_form
             in_ex.source_income=from_who_form_form
             in_ex.expense_object=for_what_from_form
@@ -900,15 +909,93 @@ class CategoryRaportView(LoginRequiredMixin, View):
         categories = Category.objects.order_by('name')
         expenses = IncomeExpense.objects.filter(user_id = user.id)
 
-        ubrania = 0
+        podroze = 0
         for ex in expenses:
             # print(ex.category.name)
+            if ex.category.name == 2:
+                podroze += ex.additional_expense
+
+        inne = 0
+        for ex in expenses:
+            if ex.category.name == 1:
+                inne += ex.additional_expense
+
+        ubrania = 0
+        for ex in expenses:
             if ex.category.name == 3:
                 ubrania += ex.additional_expense
-                print('coś', ex.additional_expense)
-                print(ubrania)
+
+        rozrywka = 0
+        for ex in expenses:
+            if ex.category.name == 4:
+                rozrywka += ex.additional_expense
+
+        jedzenie = 0
+        for ex in expenses:
+            if ex.category.name == 5:
+                jedzenie += ex.additional_expense
+
+        elektronika = 0
+        for ex in expenses:
+            if ex.category.name == 6:
+                elektronika += ex.additional_expense
+
+        dzieci = 0
+        for ex in expenses:
+            if ex.category.name == 7:
+                dzieci += ex.additional_expense
+
+        zajęcia_dodatkowe = 0
+        for ex in expenses:
+            if ex.category.name == 8:
+                zajęcia_dodatkowe += ex.additional_expense
+
+        hobby = 0
+        for ex in expenses:
+            if ex.category.name == 9:
+                hobby += ex.additional_expense
+
+        dom = 0
+        for ex in expenses:
+            if ex.category.name == 10:
+                dom += ex.additional_expense
+
+        edukacja = 0
+        for ex in expenses:
+            if ex.category.name == 11:
+                edukacja += ex.additional_expense
+
+        samochod = 0
+        for ex in expenses:
+            if ex.category.name == 12:
+                samochod += ex.additional_expense
+
+        zwierzeta = 0
+        for ex in expenses:
+            if ex.category.name == 13:
+                zwierzeta += ex.additional_expense
+
+        zdrowie = 0
+        for ex in expenses:
+            if ex.category.name == 14:
+                zdrowie += ex.additional_expense
+
         ctx = {"user": user,
             "categories":expenses,
+               "ubrania":ubrania,
+               "jedzenie":jedzenie,
+               "rozrywka":rozrywka,
+               "podroze":podroze,
+               "inne":inne,
+                "elektronika":elektronika,
+                "dzieci":dzieci,
+                "zajęcia_dodatkowe":zajęcia_dodatkowe,
+                "hobby":hobby,
+                "dom":dom,
+                "edukacja":edukacja,
+                "samochod":samochod,
+                "zwierzeta":zwierzeta,
+               "zdrowie":zdrowie
          }
         return render(request, 'sumapp/raport-category.html', ctx)
 
