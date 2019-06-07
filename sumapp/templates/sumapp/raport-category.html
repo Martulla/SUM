@@ -8,26 +8,29 @@
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-<p> Raport dla: {{user}}</p>
+<p>   Kategorie poniesionych wydatków: {{user}}</p>
 <table class="table table-striped">
 
-  <thead>
 
-    <tr>
-
-
-    </tr>
-
-  </thead>
 
     {% for category in categories %}
 
 
         <tr>
 
-            <td>{{ exepense.category.name}}</td>
-            <td>{{ exepense.additional_expense}}</td>
+            <td>{{category.category.get_name_display}}</td>
+
           </tr>
+          <tr>
+
+            <td>{{category.additional_expense}}</td>
+
+            <td>{{category.expense_object}}</td>
+
+            <td>{{category.expense_date | date:"SHORT_DATE_FORMAT"}}</td>
+
+          </tr>
+
 
 
 

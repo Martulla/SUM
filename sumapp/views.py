@@ -900,20 +900,15 @@ class SessionIdleTimeout:
 
 
 
-class CategoryRaportView(View):
+class CategoryRaportView(LoginRequiredMixin, View):
     def get(self, request, id):
         user = User.objects.get(id = id)
-        categories = Category.objects.filter(user_id = user.id).order_by('name').distinct()
-        # print(dir(result[0]))
-        for category in categories:
-            # print(category.name)
-            ex = IncomeExpense.objects.filter(category_id= category.id)
-            for e in ex:
-                print(e.category.name)
-                print(e.additional_expense)
-
-        ctx = {
-            "categories":ex,
-
+        categories = Category.objects.order_by('name')
+        expenses = IncomeExpense.objects.filter(user_id = user.id)
+        for ex in expenses:
+            print(ex.category.name)
+        ctx = {"user": user,
+            "categories":expenses,
          }
         return render(request, 'sumapp/raport-category.html', ctx)
+

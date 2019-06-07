@@ -3,10 +3,7 @@
     <body>
 {% load crispy_forms_tags %}
 
-
-
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 
 
 <p> Raport dla: {{user}}</p>
@@ -19,6 +16,8 @@
 <p> Rzeczywiste pozostale wydatki: {{real_un_ex }} </p>
 <p> Dodatkowe dochody: {{ un_in }} </p>
 
+
+<button><a href="{% url 'sum/sumapp:daily-calculation' user.id %}"> Wróć </a></button>
 
 <table class="table table-striped">
 
@@ -47,13 +46,13 @@
 
         <tr>
 
-            <td>{{ in_ex.expense_date }}</td>
+            <td>{{ in_ex.expense_date|date:"SHORT_DATE_FORMAT" }}</td>
 
-            <td>{{ in_ex.additional_expense}}</td>
+            <td>{{ in_ex.additional_expense }}</td>
 
             <td>{{ in_ex.expense_object }}</td>
 
-             <td>{{ in_ex.income_date }}</td>
+             <td>{{ in_ex.income_date|date:"SHORT_DATE_FORMAT" }}</td>
 
             <td>{{ in_ex.additional_income}}</td>
 
